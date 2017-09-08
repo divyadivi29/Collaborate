@@ -2,7 +2,11 @@ package com.collaborate.DAO;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.collaborate.Model.Blog;
@@ -38,12 +42,28 @@ public class BlogDAOImpl implements BlogDAO
 
 
 	public List<Blog> getBlogs() {
-		// TODO Auto-generated method stub
-		return null;
+		Session session=sessionFactory.openSession();
+		Query query=session.createQuery("from Blog where status='A'");
+		List<Blog> listBlog=query.list();
+		session.close();
+		
+		return listBlog;
 	}
+	@Transactional
+	
 
 	public boolean approveBlog(Blog blog) {
-		// TODO Auto-generated method stub
+		try
+		{
+			blog.setStatus("A");
+			sessionFactory.getCurrentSession().saveOrUpdate(blog);
+			return true;
+		}
+		catch(Exception e)
+		{
+			System.out.println("Exception Araised" +e);
+			
+		}
 		return false;
 	}
 
