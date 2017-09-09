@@ -8,9 +8,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.collaborate.Model.Blog;
-
+@Repository("blogDAO")
 public class BlogDAOImpl implements BlogDAO
 {
 	@Autowired
@@ -19,7 +20,7 @@ public class BlogDAOImpl implements BlogDAO
 	{
 		this.sessionFactory=sessionFactory;
 	}
-
+@Transactional
 	public boolean createBlog(Blog blog) {
 		try 
 		{

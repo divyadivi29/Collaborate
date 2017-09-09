@@ -6,9 +6,6 @@ import com.collaborate.DAO.BlogDAO;
 import com.collaborate.Model.Blog;
 
 import static org.junit.Assert.*;
-
-import javax.transaction.Transactional;
-
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
