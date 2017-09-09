@@ -6,9 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 @Entity
 @Table
-
+@Component
 public class Blog {
 	@Id
     private int blogId;
@@ -55,8 +57,8 @@ public class Blog {
 	public Date getCreateDate() {
 		return createDate;
 	}
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
+	public void setCreateDate(java.util.Date date) {
+		this.createDate = (Date) date;
 	}
 	
 }

@@ -6,10 +6,20 @@ import javax.sql.DataSource;
 
 import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.collaborate.DAO.BlogDAO;
+import com.collaborate.DAO.BlogDAOImpl;
+
+
+@Configuration
+@ComponentScan("com.collaborate.config")
+@EnableTransactionManagement
 public class DBConfig
 {
 
@@ -24,10 +34,13 @@ public DataSource getOracleDataSource()
 }
 public Properties getHibernateProperties()
 {
-	Properties properties=new Properties();
-	
-	properties.put("","");
+	Properties properties = new Properties();
+	properties.put("hibernate.show_sql", "true");
+	properties.put("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
+	properties.put("hibernate.hbm2ddl.auto", "update");
+	System.out.println("Hibernate Properties");
 	return properties;
+
 }
 @Bean
  public SessionFactory getSessionFactory()
@@ -38,10 +51,17 @@ public Properties getHibernateProperties()
 	System.out.println("SessionFactory Bean created");
 	return localSessionFactoryBuilder.buildSessionFactory();
  }
-/*@Bean
-public HibernateTransactionManager getHibernateTransactionManager(SessionFactory)
+@Bean
+public HibernateTransactionManager getTransaction(SessionFactory sessionFactory)
 {
-	
-}*/
+	 	System.out.println("Transaction");
+	    return new HibernateTransactionManager(sessionFactory);
+}
+
+@Bean
+public BlogDAO getBlogDAO(SessionFactory sessionFactory)
+{
+	 return new BlogDAOImpl(sessionFactory);
  
+}
 }
