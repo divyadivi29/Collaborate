@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.collaborate.DAO.BlogDAO;
 import com.collaborate.DAO.BlogDAOImpl;
+import com.collaborate.Model.Blog;
 
 
 @Configuration
@@ -47,6 +48,7 @@ public Properties getHibernateProperties()
  {
 	LocalSessionFactoryBuilder localSessionFactoryBuilder=new LocalSessionFactoryBuilder(getOracleDataSource());
 	localSessionFactoryBuilder.addProperties(getHibernateProperties());
+	localSessionFactoryBuilder.addAnnotatedClass(Blog.class);
 	
 	System.out.println("SessionFactory Bean created");
 	return localSessionFactoryBuilder.buildSessionFactory();
