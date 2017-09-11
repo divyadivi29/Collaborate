@@ -15,6 +15,13 @@ public class ForumComment {
 	@Id
 	private int id,forumId;
 	private String comment,username;
+	public Date CommentEnd;
+	public Date getCommentEnd() {
+		return CommentEnd;
+	}
+	public void setCommentEnd(Date commentEnd) {
+		CommentEnd = commentEnd;
+	}
 	public int getId() {
 		return id;
 	}
