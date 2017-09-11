@@ -30,8 +30,8 @@ public class BlogDAOTestCase {
 	{
 		//Blog blog=new Blog();
 		blog.setBlogId(111);
-		blog.setBlogName("Dravid");
-		blog.setBlogContent("Dravid is a Cricket Coach");
+		blog.setBlogName("Akayi");
+		blog.setBlogContent("niit");
 		
 		blog.setCreateDate(new java.util.Date());
 		blog.setStatus("NA");
@@ -46,8 +46,8 @@ public class BlogDAOTestCase {
 	{
 		Blog blog=new Blog();
 		blog.setBlogId(1001);
-		blog.setBlogName("Dravid");
-		blog.setBlogContent("Dravid is a Cricket Coach");
+		blog.setBlogName("Watson");
+		blog.setBlogContent("niit");
 		
 		blog.setCreateDate(new java.util.Date());
 		blog.setStatus("NA");

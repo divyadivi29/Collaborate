@@ -33,7 +33,7 @@ public class ForumDAOTestCase {
 	Forum forum=new Forum();	
 	
 	forum.setForumId(1000);
-	forum.setForumName("Rajkumar");
+	forum.setForumName("Jhon");
 	forum.setForumContent("niit ");
 	 
 	forum.setStatus("NA");
@@ -53,7 +53,7 @@ public class ForumDAOTestCase {
 	Forum forum=new Forum();	
 	
 	forum.setForumId(1000);
-	forum.setForumName("Sai Mahesh");
+	forum.setForumName("Jerry");
 	forum.setForumContent("niit");
 	
 	forum.setStatus("NA");
