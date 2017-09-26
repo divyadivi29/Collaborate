@@ -2,113 +2,87 @@ package com.collaborate.DAO;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.collaborate.Model.Forum;
 import com.collaborate.Model.UserTable;
-@Repository("userTableDAO")
 
-public class UserTableDAOImpl implements UserTableDAO {
+@Repository("userDAO")
+public class UserTableDAOImpl implements UserTableDAO{	
+	
 	@Autowired
 	SessionFactory sessionFactory;
-	
 	public UserTableDAOImpl(SessionFactory sessionFactory)
 	{
 		this.sessionFactory=sessionFactory;
 	}
+	
 	@Transactional
-
-	public boolean createUserTable(UserTable userTable) {
-		try
-		{
-			sessionFactory.getCurrentSession().saveOrUpdate(userTable);
-			return true;
-		}
-		catch(Exception e)
-		{
-			System.out.println("Exception Arised"+e);
-			return false;
-		}
-		
-	}
-	@Transactional
-	public UserTable getUserTable(int userTableId)
+	public boolean createUser1(UserTable user)
 	{
 		try
 		{
-			
-			
-			 return  (UserTable)sessionFactory.getCurrentSession().createQuery("from Usertable where userTableId="+userTableId);
-			
-			
-		}
-		catch(Exception e)
-		{
-			 System.out.println("Exception Arised"+e);
-			 return null;
-		}
-	}
-	@Transactional
-	
-
-	public List<UserTable> getUserTable() {
-		 @SuppressWarnings("unchecked")
-			List<UserTable> listUserTable = (List<UserTable>) sessionFactory.getCurrentSession().createQuery("from UserTable");
-			 
-		return listUserTable;
-	}
-	@Transactional
-	public boolean approveUserTable(UserTable userTable) {
-		
-		try
-		{
-			userTable.setStatus("A");
-			sessionFactory.getCurrentSession().update(userTable);
+			sessionFactory.getCurrentSession().saveOrUpdate(user);
 			return true;
 		}
 		catch(Exception e)
 		{
 			System.out.println("Exception Arised"+e);
 			return false;
+			
 		}
 	}
-	@Transactional
 
-	public boolean editUserTable(int userTableId) {
-		try
-		{
-			
-			@SuppressWarnings("rawtypes")
-			Query query = (Query) sessionFactory.getCurrentSession().createQuery("update UserTable where userTableId="+userTableId);
-			  query.executeUpdate();
-			return true;
-		}
-		catch(Exception e)
-		{
-				System.out.println("Exception Arised"+e);
-			 return false;
-		}
-		
+	public boolean createUser(UserTable user) {
+		// TODO Auto-generated method stub
+		return false;
 	}
-	@Transactional
 
-	public boolean deleteUserTable(int userTableId) {
-		try
-		{
-			
-			sessionFactory.getCurrentSession().delete(userTableId);
-			return true;
-		}
-		catch(Exception e)
-		{
-			System.out.println("Exception Arised"+e);
-			return false;
-		}
+	public UserTable getUser(int userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<UserTable> getUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean approveUser(UserTable user) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean editUser(int userId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean deleteUser(int userId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean isUsernameValid(String username) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean registerUser(UserTable user) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean isEmailValid(String email) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean createUserTable(UserTable userTable) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	public UserTable getUserTabledetails(int userTableId) {
@@ -116,4 +90,25 @@ public class UserTableDAOImpl implements UserTableDAO {
 		return null;
 	}
 
+	public List<UserTable> getUserTable() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean approveUserTable(UserTable userTable) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean editUserTable(int userTableId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean deleteUserTable(int userTableId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	
 }
