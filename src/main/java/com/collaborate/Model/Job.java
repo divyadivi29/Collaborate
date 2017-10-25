@@ -3,55 +3,79 @@ package com.collaborate.Model;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id; 
 
-import org.springframework.stereotype.Component;
-
-@Component
 @Entity
-@Table(name="Job_details")
+public class Job 
+{
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
 
-public class Job {
-	private int JobID;
-	private String JobProfile,JobDesc,Qualificatin,Status;
-	public Date PostDate;
-	public int getJobID() {
-		return JobID;
-	}
-	public void setJobID(int jobID) {
-		JobID = jobID;
-	}
-	public String getJobProfile() {
-		return JobProfile;
-	}
-	public void setJobProfile(String jobProfile) {
-		JobProfile = jobProfile;
-	}
-	public String getJobDesc() {
-		return JobDesc;
-	}
-	public void setJobDesc(String jobDesc) {
-		JobDesc = jobDesc;
-	}
-	public String getQualificatin() {
-		return Qualificatin;
-	}
-	public void setQualificatin(String qualificatin) {
-		Qualificatin = qualificatin;
-	}
-	public String getStatus() {
-		return Status;
-	}
-	public void setStatus(String status) {
-		Status = status;
-	}
-	public Date getPostDate() {
-		return PostDate;
-	}
-	public void setPostDate(Date postDate) {
-		PostDate = postDate;
-	}
-	
+	private String jobTitle;
 
+	private String jobDescription;
+
+	private String yrsOfExp;
+	private String skillsRequired;
+	private String salary;
+	private Date postedOn;
+	private String location;
+	private String companyName;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getJobTitle() {
+		return jobTitle;
+	}
+	public void setJobTitle(String jobTitle) {
+		this.jobTitle = jobTitle;
+	}
+	public String getJobDescription() {
+		return jobDescription;
+	}
+	public void setJobDescription(String jobDescription) {
+		this.jobDescription = jobDescription;
+	}
+	public String getYrsOfExp() {
+		return yrsOfExp;
+	}
+	public void setYrsOfExp(String yrsOfExp) {
+		this.yrsOfExp = yrsOfExp;
+	}
+	public String getSkillsRequired() {
+		return skillsRequired;
+	}
+	public void setSkillsRequired(String skillsRequired) {
+		this.skillsRequired = skillsRequired;
+	}
+	public String getSalary() {
+		return salary;
+	}
+	public void setSalary(String salary) {
+		this.salary = salary;
+	}
+	public Date getPostedOn() {
+		return postedOn;
+	}
+	public void setPostedOn(Date postedOn) {
+		this.postedOn = postedOn;
+	}
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	public String getCompanyName() {
+		return companyName;
+	}
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
 }
-

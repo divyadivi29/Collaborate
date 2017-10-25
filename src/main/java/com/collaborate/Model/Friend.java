@@ -1,38 +1,45 @@
 package com.collaborate.Model;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.stereotype.Component;
-
-@Component
 @Entity
-@Table(name="Friend_details")
-public class Friend {
+@Table(name="friend")
+public class Friend
+{
 	@Id
-	private int userid,friendid;
-	private String status;
-	public int getUserid() {
-		return userid;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+
+	private int id;
+	private String fromId;
+	private String toId;
+	private char status;
+	
+	public int getId() {
+		return id;
 	}
-	public void setUserid(int userid) {
-		this.userid = userid;
+	public void setId(int id) {
+		this.id = id;
 	}
-	public int getFriendid() {
-		return friendid;
+	public String getFromId() {
+		return fromId;
 	}
-	public void setFriendid(int friendid) {
-		this.friendid = friendid;
+	public void setFromId(String fromId) {
+		this.fromId = fromId;
 	}
-	public String getStatus() {
+	public String getToId() {
+		return toId;
+	}
+	public void setToId(String toId) {
+		this.toId = toId;
+	}
+	public char getStatus() {
 		return status;
 	}
-	public void setStatus(String status) {
+	public void setStatus(char status) {
 		this.status = status;
 	}
-	
-	
 }

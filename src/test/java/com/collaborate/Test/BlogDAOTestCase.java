@@ -1,4 +1,4 @@
-package com.collaborate.Test;
+package com.collaborate.Backend;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import com.collaborate.DAO.BlogDAO;
