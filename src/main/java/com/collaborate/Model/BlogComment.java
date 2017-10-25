@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="blogcomment_batch19")
+@Table(name="blogcomment")
 public class BlogComment
 {
 	@Id
